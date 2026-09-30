@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de productos{% endblock %}
+
+{% block content %}
+    <h1>Productos</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        {% for producto in productos or [] %}
+            {% include "componentes/fila_producto.html" %}
+        {% else %}
+            <tbody>
+                <tr><td colspan="5">Todavía no hay productos en la tabla. Si acabas de eliminar el último, esta es la lista vacía.</td></tr>
+            </tbody>
+        {% endfor %}
+    </table>
+{% endblock %}
